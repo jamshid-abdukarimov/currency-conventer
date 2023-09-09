@@ -18,8 +18,8 @@ function App() {
   const [resultCurrency, setResultCurrency] = useState(0);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState("");
-  const codeFromCurrency = fromCurrency.split(" ")[1];
-  const codeToCurrency = toCurrency.split(" ")[1];
+  const codeFromCurrency = fromCurrency.split(" ")[0];
+  const codeToCurrency = toCurrency.split(" ")[0];
 
   useEffect(() => {
     if (firstAmount) {
@@ -34,7 +34,6 @@ function App() {
         },
       })
         .then((response) => {
-          console.log(response.data.rates[codeToCurrency]);
           setError("");
           setResultCurrency(response.data.rates[codeToCurrency]);
         })
@@ -95,13 +94,13 @@ function App() {
       ) : firstAmount ? (
         <Box sx={{ textAlign: "left", marginTop: "1rem" }}>
           <Typography>
-            {firstAmount} {fromCurrency} =
+            {firstAmount} {codeFromCurrency} =
           </Typography>
           <Typography
             variant="h5"
             sx={{ marginTop: "5px", fontWeight: "bold" }}
           >
-            {(resultCurrency * firstAmount).toFixed(3)} {toCurrency}
+            {(resultCurrency * firstAmount).toFixed(2)} {codeToCurrency}
           </Typography>
         </Box>
       ) : (
