@@ -62,7 +62,7 @@ function App() {
 
   return (
     <Container maxWidth="md" sx={boxStyles}>
-      <Typography variant="h6" sx={{ marginBottom: "1.2rem" }}>
+      <Typography variant="h5" sx={{ marginBottom: "1.2rem" }}>
         Stay Ahead with Accurate Conversions
       </Typography>
       <Grid container spacing={2}>
