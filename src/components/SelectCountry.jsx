@@ -15,7 +15,11 @@ const SelectCountry = (props) => {
     );
   }
   if (error) {
-    return "Something went wrong!";
+    return (
+      <h3 style={{ color: "gray", textAlign: "center", width: "100%" }}>
+        Something went wrong!
+      </h3>
+    );
   }
 
   const dataFilter = data.filter((item) => "currencies" in item);
